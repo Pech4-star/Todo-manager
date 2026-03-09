@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo List</title>
+</head>
+
+<body>
+
+<h2>Todo Manager</h2>
+
+<form th:action="@{/todos}" method="post">
+
+    <input type="text" name="title" placeholder="New Todo"/>
+
+    <button type="submit">Add</button>
+
+</form>
+
+<br>
+
+<ul>
+
+    <li th:each="todo : ${todos}">
+
+        <span th:text="${todo.title}"></span>
+
+        <form th:action="@{'/delete/' + ${todo.id}}" method="post" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+
+    </li>
+
+</ul>
+
+<a th:href="@{/logout}">Logout</a>
+
+</body>
+</html>
