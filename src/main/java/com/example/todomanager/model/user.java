@@ -23,6 +23,5 @@ public class user {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Todo> todos;
-
     // Getters and Setters
 }
