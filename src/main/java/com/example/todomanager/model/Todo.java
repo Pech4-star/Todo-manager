@@ -6,7 +6,7 @@ import org.apache.catalina.User;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "todos")
+@Table(name = "todo")//Todo list authorization
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
