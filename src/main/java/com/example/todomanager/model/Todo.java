@@ -6,7 +6,7 @@ import org.apache.catalina.User;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "todo")//Todo list authorization
+@Table(name = "todo")//Todo List manager
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
