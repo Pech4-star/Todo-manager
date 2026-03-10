@@ -1,9 +1,9 @@
 package volak.edu.paragoniu.todomanager;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.Test.context.SpringBootTest;
 
-@SpringBootTest
+@volak.edu.paragoniu.todomanager.SpringBootTest
 class TodoManagerApplicationTests {
 
     @Test
