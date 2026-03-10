@@ -1,27 +1,31 @@
 package com.example.todomanager.model;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "user")// User entity for authentication
 public class user {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
     private String username;
-
-    @Column(unique = true)
-    private String email;
-
     private String password;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    public user() {}
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Todo> todos;
-    // Getters and Setters
+    public user(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public Long getId() { return id; }
+    public String getUsername() { return username; }
+    public String getPassword() { return password; }
+
+    public void setUsername(String username) { this.username = username; }
+    public void setPassword(String password) { this.password = password; }
 }

@@ -1,9 +1,7 @@
-package com.example.todomanager;
+package volak.edu.paragoniu.todomanager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.junit.jupiter.api.Test;
-import org.junit.Test;
 
 @SpringBootApplication
 public class TodoManagerApplication {
