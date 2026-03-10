@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class userController { // identify the class of user controller
+public class userController { // identify class of user controller
 
     private final userService service;
 
