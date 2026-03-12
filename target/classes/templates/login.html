@@ -2,15 +2,103 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Login - TodoManager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4facfe;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00c6ff;
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #777;
+        }
+
+    </style>
+
 </head>
+
 <body>
-<h1>TodoManager Login</h1>
-<form th:action="@{/login}" method="post">
-    <label>Username:</label>
-    <input type="text" name="username"/><br/>
-    <label>Password:</label>
-    <input type="password" name="password"/><br/>
-    <button type="submit">Login</button>
-</form>
+
+<div class="login-container">
+
+    <h1>TodoManager Login</h1>
+
+    <form th:action="@{/login}" method="post">
+
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Enter username"/>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password"/>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <div class="footer">
+        Manage your tasks easily
+    </div>
+
+</div>
+
 </body>
 </html>

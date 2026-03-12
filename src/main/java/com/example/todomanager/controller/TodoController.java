@@ -1,13 +1,17 @@
 package com.example.todomanager.controller;
 
-import com.example.todomanager.model.user;
+import com.example.todomanager.model.User;
+import com.example.todomanager.model.Todo;
 import com.example.todomanager.repository.TodoRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class TodoController {
 
     private final TodoRepository TodoRepository;
@@ -18,11 +22,36 @@ public class TodoController {
 
     @GetMapping("/")
     public String home() {
-        return "Hello, TodoManager!";
+        return "home";
     }
 
-    @GetMapping("/users")
-    public List<user> getUsers() {
-        return TodoRepository.findAll();
+    @GetMapping("/todos")
+    public String todos(Model model) {
+        List<User> users = TodoRepository.findAll();
+        model.addAttribute("users", users);
+        return "todos";
     }
+
+    @PostMapping("/todos")
+    public String addTodo(@RequestParam String title, Model model) {
+        // You can add logic here to save the todo
+        // For now, just redirect back to todos page
+        return "redirect:/todos";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+
+    @GetMapping("/list")
+    public String list() {
+        return "list";
+    }
+
 }

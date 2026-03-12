@@ -2,9 +2,83 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Home - TodoManager</title>
+
+    <style>
+
+        body{
+            margin:0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .container{
+            background:white;
+            padding:40px;
+            border-radius:10px;
+            text-align:center;
+            width:400px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            color:#333;
+            margin-bottom:30px;
+        }
+
+        .buttons{
+            margin-top:20px;
+        }
+
+        a{
+            text-decoration:none;
+            padding:10px 20px;
+            margin:10px;
+            border-radius:5px;
+            color:white;
+            font-weight:bold;
+            display:inline-block;
+            transition:0.3s;
+        }
+
+        .todo-btn{
+            background:#4CAF50;
+        }
+
+        .todo-btn:hover{
+            background:#43a047;
+        }
+
+        .logout-btn{
+            background:#f44336;
+        }
+
+        .logout-btn:hover{
+            background:#d32f2f;
+        }
+
+    </style>
+
 </head>
+
 <body>
-<h1>Welcome to TodoManager!</h1>
-<a th:href="@{/logout}">Logout</a>
+
+<div class="container">
+
+    <h1>Welcome to TodoManager 🎯</h1>
+
+    <div class="buttons">
+
+        <a th:href="@{/todos}" class="todo-btn">View My Todos</a>
+
+        <a th:href="@{/logout}" class="logout-btn">Logout</a>
+
+    </div>
+
+</div>
+
 </body>
 </html>

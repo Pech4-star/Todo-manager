@@ -1,6 +1,6 @@
 package com.example.todomanager.service;
 
-import com.example.todomanager.model.user;
+import com.example.todomanager.model.User;
 import com.example.todomanager.repository.TodoRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +15,11 @@ public class userService {
         this.repository = repository;
     }
 
-    public List<user> getAllTasks() {
+    public List<User> getAllTasks() {
         return repository.findAll();
     }
 
-    public void saveTask(user user) {
+    public void saveTask(User user) {
         repository.save(user);
     }
 

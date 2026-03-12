@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo List - TodoManager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 60px;
+        }
+
+        .container {
+            background: white;
+            width: 600px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .add-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #43a047;
+        }
+
+        .todo-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .todo-item {
+            background: #f4f4f4;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .todo-title {
+            flex: 1;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .todo-date {
+            color: #888;
+            font-size: 12px;
+            margin-right: 15px;
+        }
+
+        .delete-btn {
+            background: #f44336;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #d32f2f;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #888;
+            padding: 40px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h2>📝 My Todo List</h2>
+
+    <form th:action="@{/todos/add}" method="post" class="add-form">
+        <input type="text" name="title" placeholder="Enter new todo task" required/>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul class="todo-list" th:if="${todos != null and todos.size() > 0}">
+        <li class="todo-item" th:each="todo : ${todos}">
+            <span class="todo-title" th:text="${todo.title}">Task</span>
+            <span class="todo-date" th:text="${#temporals.format(todo.createdAt, 'dd/MM/yyyy HH:mm')}">Date</span>
+            <a class="delete-btn" th:href="@{/todos/delete/{id}(id=${todo.id})}">Delete</a>
+        </li>
+    </ul>
+
+    <div class="empty-message" th:if="${todos == null or todos.size() == 0}">
+        No todos yet. Add one to get started! 🚀
+    </div>
+</div>
+</body>
+</html>

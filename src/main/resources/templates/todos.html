@@ -1,38 +1,119 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Todo List</title> // add tittle todo page
+    <title>Todo Page - TodoManager</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            margin:0;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+            padding-top:60px;
+        }
+
+        .container{
+            background:white;
+            width:500px;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+            margin-bottom:20px;
+        }
+
+        form{
+            display:flex;
+            gap:10px;
+            margin-bottom:20px;
+        }
+
+        input{
+            flex:1;
+            padding:10px;
+            border-radius:5px;
+            border:1px solid #ccc;
+        }
+
+        button{
+            padding:10px 15px;
+            border:none;
+            background:#4CAF50;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#43a047;
+        }
+
+        ul{
+            list-style:none;
+            padding:0;
+        }
+
+        li{
+            background:#f4f4f4;
+            padding:10px;
+            margin-bottom:8px;
+            border-radius:5px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .delete-btn{
+            background:#f44336;
+            padding:5px 10px;
+            border-radius:4px;
+            text-decoration:none;
+            color:white;
+            font-size:12px;
+        }
+
+        .delete-btn:hover{
+            background:#d32f2f;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<h2>Todo Manager</h2>
+<div class="container">
 
-<form th:action="@{/todos}" method="post">
+    <h2>Todo Manager 📝</h2>
 
-    <input type="text" name="title" placeholder="New Todo"/>
+    <form th:action="@{/todos}" method="post">
 
-    <button type="submit">Add</button>
+        <input type="text" name="title" placeholder="Enter new todo task"/>
 
-</form>
+        <button type="submit">Add</button>
 
-<br>
+    </form>
 
-<ul>
+    <br>
 
-    <li th:each="todo : ${todos}">
+    <ul>
+        <li th:each="todo : ${todos}">
+            <span th:text="${todo.title}"></span>
 
-        <span th:text="${todo.title}"></span>
+            <a th:href="@{'/delete/' + ${todo.id}}" class="delete-btn">Delete</a>
+        </li>
+    </ul>
 
-        <form th:action="@{'/delete/' + ${todo.id}}" method="post" style="display:inline;">
-            <button type="submit">Delete</button>
-        </form>
-
-    </li>
-
-</ul>
-
-<a th:href="@{/logout}">Logout</a>
+</div>
 
 </body>
 </html>
