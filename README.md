@@ -170,6 +170,7 @@ Simple login interface for accessing the todo manager.
 * Mark tasks as completed
 * REST API support
 * Delete task list
+* Database figure stock for task list 
 
 ---
 
