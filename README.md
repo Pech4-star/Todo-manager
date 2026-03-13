@@ -209,9 +209,11 @@ mvn spring-boot:run
   server.port=8081
   ```
 * **Database connection failed:**
-
+  * To many file driver
+  * PostgreSQL not online 
   * Ensure PostgreSQL is running
   * Verify credentials and DB name
+    
 * **Dependencies not found:**
   Run `mvn clean install` to download all dependencies
 
