@@ -272,6 +272,14 @@ npm start
 
 ---
 
+# Reference
+https://spring.io/projects/spring-boot
+
+https://www.thymeleaf.org/documentation.html
+
+https://www.youtube.com/watch?v=Q_Hr4KK8tsQ&authuser=0
+
+
 # AI Usage Declaration
 
 This project used AI tools for assistance in the following areas:
