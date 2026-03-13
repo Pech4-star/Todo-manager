@@ -34,8 +34,6 @@ public class TodoController {
 
     @PostMapping("/todos")
     public String addTodo(@RequestParam String title, Model model) {
-        // You can add logic here to save the todo
-        // For now, just redirect back to todos page
         return "redirect:/todos";
     }
 
@@ -47,11 +45,6 @@ public class TodoController {
     @GetMapping("/register")
     public String register() {
         return "register";
-    }
-
-    @GetMapping("/list")
-    public String list() {
-        return "list";
     }
 
 }

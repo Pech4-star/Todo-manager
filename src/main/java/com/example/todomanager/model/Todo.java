@@ -21,5 +21,12 @@ public class Todo {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
     // Getters and Setters
 }
