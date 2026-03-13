@@ -114,9 +114,9 @@ Open the project in:
 Edit `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/tododb
-spring.datasource.username=root
-spring.datasource.password=yourpassword
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.username=sa
+spring.datasource.password=****
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
