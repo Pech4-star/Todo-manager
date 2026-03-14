@@ -194,6 +194,9 @@ cd backend
 mvn clean install
 mvn spring-boot:run
 ```
+orr 
+Maven-click lifecycle-clean-install-run app (if bash mvn not recognized)
+
 
 **Common Issues:**
 
