@@ -172,13 +172,8 @@ Simple login interface for accessing the todo manager.
 * Delete task list
 * Database figure stock for task list 
 
----
-
-Perfect! Here’s a **ready-to-use “Local Setup & Troubleshooting” section** you can add to your `README.md`. I formatted it cleanly so it fits naturally with the rest of your documentation:
 
 ---
-
-````markdown
 ## Local Setup & Troubleshooting
 
 ### Running the Backend
